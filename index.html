@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador HTML</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap " rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Gerador HTML</h1>
+
+    <!-- Campo 1: Upload de Imagem -->
+    <label for="image">Upload de Imagem:</label>
+    <input type="file" id="image" accept="image/*">
+
+    <!-- Campo 2: Nome do Produto -->
+    <label for="productName">Nome do Produto:</label>
+    <input type="text" id="productName" placeholder="Digite o nome do produto">
+
+    <!-- Campo 3: Link da Amazon -->
+    <label for="amazonLink">Inserir Link da Amazon:</label>
+    <input type="text" id="amazonLink" placeholder="https://www.amazon.com/... ">
+
+    <!-- Campo 4: Link do Mercado Livre -->
+    <label for="mercadolivreLink">Inserir Link do Mercado Livre:</label>
+    <input type="text" id="mercadolivreLink" placeholder="https://www.mercadolivre.com.br/... ">
+
+    <!-- Campo 5: Texto na Imagem -->
+    <label for="imageText">Texto na Imagem:</label>
+    <select id="imageText">
+      <option value="">Selecione uma opção</option>
+      <option value="OFERTA">OFERTA</option>
+      <option value="ULTIMAS UNIDADES">ÚLTIMAS UNIDADES</option>
+      <option value="PROMOÇÃO">PROMOÇÃO</option>
+      <option value="FRETE GRÁTIS">FRETE GRÁTIS</option>
+      <option value="ENTREGA RÁPIDA">ENTREGA RÁPIDA</option>
+      <option value="TODO BRASIL">TODO BRASIL</option>
+      <option value="SUPER DESCONTO %">SUPER DESCONTO %</option>
+    </select>
+
+    <!-- Botão para Gerar o HTML -->
+    <button onclick="generateHTML()">Gerar HTML</button>
+
+    <!-- Área de Saída do Código HTML -->
+    <label>Código HTML Gerado:</label>
+    <textarea id="generatedHtml" readonly></textarea>
+    <button onclick="copyHTML()">Copiar</button>
+
+    <!-- Prévia Visual -->
+    <div class="preview" id="preview"></div>
+
+  </div>
+
+  <!-- Aqui vamos carregar o JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

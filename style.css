@@ -1,0 +1,133 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo geral da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 40px 20px;
+}
+
+/* Container centralizado */
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Labels dos campos */
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Inputs de texto e select */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Input de upload de imagem */
+input[type="file"] {
+  border: none;
+  padding: 5px;
+  background: #f9f9f9;
+}
+
+/* Botão principal */
+button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Efeito hover no botão */
+button:hover {
+  background-color: #218838;
+}
+
+/* Área onde o código HTML gerado será exibido */
+textarea {
+  width: 100%;
+  height: 200px;
+  margin-top: 10px;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+/* Prévia visual do resultado final */
+.preview {
+  margin-top: 30px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Estilo do bloco de anúncio (visual final) */
+.preview div {
+  max-width: 300px;
+  font-family: 'Bree Serif', serif;
+  margin: auto;
+}
+
+/* Imagem no formato 9:16 */
+.preview img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Tag vermelha na imagem */
+.preview .tag {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+/* Botões dentro da prévia */
+.preview button {
+  margin-right: 10px;
+  background-color: #007bff;
+}
+
+.preview button:hover {
+  background-color: #0056b3;
+}
