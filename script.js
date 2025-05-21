@@ -1,6 +1,4 @@
-// Função principal para gerar o código HTML
 function generateHTML() {
-  // Capturar valores dos campos
   const productName = document.getElementById("productName").value.trim();
   const amazonLink = document.getElementById("amazonLink").value.trim();
   const mercadolivreLink = document.getElementById("mercadolivreLink").value.trim();
@@ -9,36 +7,30 @@ function generateHTML() {
   const generatedHtml = document.getElementById("generatedHtml");
   const preview = document.getElementById("preview");
 
-  // Validação do campo "Nome do Produto"
+  // Validação dos campos
   if (!productName) {
     alert("Nome do Produto não pode estar vazio!");
     return;
   }
 
-  // Função para validar se o link começa com http:// ou https://
-  const isValidLink = (link) => {
-    return link.startsWith("http://") || link.startsWith("https://");
-  };
+  const isValidLink = (link) =>
+    link.startsWith("http://") || link.startsWith("https://");
 
-  // Validação do link da Amazon
   if (!isValidLink(amazonLink)) {
     alert("Link da Amazon inválido. Deve começar com http:// ou https://");
     return;
   }
 
-  // Validação do link do Mercado Livre
   if (!isValidLink(mercado livreLink)) {
     alert("Link do Mercado Livre inválido. Deve começar com http:// ou https://");
     return;
   }
 
-  // Validação do campo de texto na imagem
   if (!imageText) {
     alert("Por favor, selecione um texto para aparecer na imagem.");
     return;
   }
 
-  // Processar imagem selecionada
   let imageUrl = "";
   if (imageInput.files && imageInput.files[0]) {
     imageUrl = URL.createObjectURL(imageInput.files[0]);
@@ -47,25 +39,40 @@ function generateHTML() {
     return;
   }
 
-  // Montar o código HTML final
+  // Código HTML com layout melhorado
   const htmlCode = `
-<div style="max-width: 300px; font-family: 'Bree Serif', serif;">
-  <img src="${imageUrl}" alt="Imagem do produto" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border: 1px solid #ccc;">
-  <div style="position: absolute; top: 10px; left: 10px; background-color: red; color: white; font-weight: bold; padding: 5px 10px; border-radius: 4px;">${imageText}</div>
-  <h2>${productName}</h2>
-  <a href="${amazonLink}" target="_blank"><button style="background-color: #17a2b8; border: none; padding: 8px 12px; border-radius: 4px; color: white; cursor: pointer;">Ver na Amazon</button></a>
-  <a href="${mercado livreLink}" target="_blank"><button style="background-color: #004085; border: none; padding: 8px 12px; border-radius: 4px; color: white; cursor: pointer;">Ver no Mercado Livre</button></a>
+<div style="max-width: 300px; font-family: 'Bree Serif', serif; margin: auto; text-align: center;">
+  <div style="position: relative; display: inline-block; width: 100%;">
+    <img src="${imageUrl}" alt="Imagem do produto" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border: 1px solid #ccc; border-radius: 4px;">
+    <div style="position: absolute; top: 10px; left: 10px; background-color: red; color: white; font-weight: bold; padding: 5px 10px; border-radius: 4px;">
+      ${imageText}
+    </div>
+  </div>
+
+  <h2 style="margin-top: 15px; font-size: 18px;">${productName}</h2>
+
+  <a href="${amazonLink}" target="_blank" style="text-decoration: none;">
+    <button style="background-color: #17a2b8; border: none; padding: 8px 12px; border-radius: 4px; color: white; cursor: pointer; margin-top: 10px; display: inline-block;">
+      Ver na Amazon
+    </button>
+  </a>
+
+  <a href="${mercado livreLink}" target="_blank" style="text-decoration: none;">
+    <button style="background-color: #004085; border: none; padding: 8px 12px; border-radius: 4px; color: white; cursor: pointer; margin-top: 10px; display: inline-block;">
+      Ver no Mercado Livre
+    </button>
+  </a>
 </div>
 `;
 
-  // Exibir o código HTML gerado
+  // Exibir o código gerado
   generatedHtml.value = htmlCode;
 
-  // Exibir a prévia visual
+  // Mostrar prévia visual
   preview.innerHTML = htmlCode;
 }
 
-// Função para copiar o código HTML para a área de transferência
+// Função para copiar o código
 function copyHTML() {
   const generatedHtml = document.getElementById("generatedHtml");
   generatedHtml.select();
