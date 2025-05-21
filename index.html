@@ -1,74 +1,59 @@
-// Função principal para gerar o código HTML
-function generateHTML() {
-  // Capturar valores dos campos
-  const productName = document.getElementById("productName").value.trim();
-  const amazonLink = document.getElementById("amazonLink").value.trim();
-  const mercadolivreLink = document.getElementById("mercadolivreLink").value.trim();
-  const imageText = document.getElementById("imageText").value;
-  const imageInput = document.getElementById("image");
-  const generatedHtml = document.getElementById("generatedHtml");
-  const preview = document.getElementById("preview");
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador HTML</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap " rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  // Validação do campo "Nome do Produto"
-  if (!productName) {
-    alert("Nome do Produto não pode estar vazio!");
-    return;
-  }
+  <div class="container">
+    <h1>Gerador HTML</h1>
 
-  // Função para validar se o link começa com http:// ou https://
-  const isValidLink = (link) => {
-    return link.startsWith("http://") || link.startsWith("https://");
-  };
+    <!-- Campo de Upload de Imagem -->
+    <label for="image">Upload de Imagem:</label>
+    <input type="file" id="image" accept="image/*">
 
-  // Validação do link da Amazon
-  if (!isValidLink(amazonLink)) {
-    alert("Link da Amazon inválido. Deve começar com http:// ou https://");
-    return;
-  }
+    <!-- Campo 1: Nome do Produto -->
+    <label for="productName">Nome do Produto:</label>
+    <input type="text" id="productName" placeholder="Digite o nome do produto">
 
-  // Validação do link do Mercado Livre
-  if (!isValidLink(mercado livreLink)) {
-    alert("Link do Mercado Livre inválido. Deve começar com http:// ou https://");
-    return;
-  }
+    <!-- Campo 2: Link da Amazon -->
+    <label for="amazonLink">Inserir Link da Amazon:</label>
+    <input type="text" id="amazonLink" placeholder="https://www.amazon.com/... ">
 
-  // Validação do campo de texto na imagem
-  if (!imageText) {
-    alert("Por favor, selecione um texto para aparecer na imagem.");
-    return;
-  }
+    <!-- Campo 3: Link do Mercado Livre -->
+    <label for="mercadolivreLink">Inserir Link do Mercado Livre:</label>
+    <input type="text" id="mercadolivreLink" placeholder="https://www.mercadolivre.com.br/... ">
 
-  // Processar imagem selecionada
-  let imageUrl = "";
-  if (imageInput.files && imageInput.files[0]) {
-    imageUrl = URL.createObjectURL(imageInput.files[0]);
-  } else {
-    alert("Por favor, selecione uma imagem.");
-    return;
-  }
+    <!-- Campo 4: Texto na Imagem -->
+    <label for="imageText">Texto na Imagem:</label>
+    <select id="imageText">
+      <option value="">Selecione uma opção</option>
+      <option value="OFERTA">OFERTA</option>
+      <option value="ULTIMAS UNIDADES">ÚLTIMAS UNIDADES</option>
+      <option value="PROMOÇÃO">PROMOÇÃO</option>
+      <option value="FRETE GRÁTIS">FRETE GRÁTIS</option>
+      <option value="ENTREGA RÁPIDA">ENTREGA RÁPIDA</option>
+      <option value="TODO BRASIL">TODO BRASIL</option>
+      <option value="SUPER DESCONTO %">SUPER DESCONTO %</option>
+    </select>
 
-  // Montar o código HTML final
-  const htmlCode = `
-<div style="max-width: 300px; font-family: 'Bree Serif', serif;">
-  <img src="${imageUrl}" alt="Imagem do produto" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border: 1px solid #ccc;">
-  <div style="background-color: red; color: white; font-weight: bold; padding: 5px 10px; border-radius: 4px; display: inline-block; margin: 10px 0;">${imageText}</div>
-  <h2>${productName}</h2>
-  <a href="${amazonLink}" target="_blank"><button style="margin-right: 10px; background-color: #007bff; border: none; padding: 8px 12px; border-radius: 4px; color: white; cursor: pointer;">Ver na Amazon</button></a>
-  <a href="${mercado livreLink}" target="_blank"><button style="background-color: #007bff; border: none; padding: 8px 12px; border-radius: 4px; color: white; cursor: pointer;">Ver no Mercado Livre</button></a>
-</div>
-`;
+    <!-- Botão para Gerar o HTML -->
+    <button onclick="generateHTML()">Gerar HTML</button>
 
-  // Exibir o código HTML gerado
-  generatedHtml.value = htmlCode;
+    <!-- Área de Saída do Código HTML -->
+    <label>Código HTML Gerado:</label>
+    <textarea id="generatedHtml" readonly></textarea>
+    <button onclick="copyHTML()">Copiar</button>
 
-  // Exibir a prévia visual
-  preview.innerHTML = htmlCode;
-}
+    <!-- Prévia Visual -->
+    <div class="preview" id="preview"></div>
 
-// Função para copiar o código HTML para a área de transferência
-function copyHTML() {
-  const generatedHtml = document.getElementById("generatedHtml");
-  generatedHtml.select();
-  document.execCommand("copy");
-  alert("Código HTML copiado para a área de transferência!");
-}
+  </div>
+
+  <!-- Carregar o JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

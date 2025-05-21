@@ -100,6 +100,9 @@ textarea {
   max-width: 300px;
   font-family: 'Bree Serif', serif;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Imagem no formato 9:16 */
@@ -113,21 +116,33 @@ textarea {
 
 /* Tag vermelha na imagem */
 .preview .tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
   background-color: red;
   color: white;
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 4px;
   display: inline-block;
-  margin: 10px 0;
 }
 
 /* Botões dentro da prévia */
 .preview button {
   margin-right: 10px;
   background-color: #007bff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
-.preview button:hover {
-  background-color: #0056b3;
+.preview button:first-child {
+  background-color: #17a2b8; /* Azul claro para Amazon */
+}
+
+.preview button:last-child {
+  background-color: #004085; /* Azul escuro para Mercado Livre */
 }

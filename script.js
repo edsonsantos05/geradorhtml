@@ -27,7 +27,7 @@ function generateHTML() {
   }
 
   // Validação do link do Mercado Livre
-  if (!isValidLink(mercadolivreLink)) {
+  if (!isValidLink(mercado livreLink)) {
     alert("Link do Mercado Livre inválido. Deve começar com http:// ou https://");
     return;
   }
@@ -51,10 +51,10 @@ function generateHTML() {
   const htmlCode = `
 <div style="max-width: 300px; font-family: 'Bree Serif', serif;">
   <img src="${imageUrl}" alt="Imagem do produto" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border: 1px solid #ccc;">
-  <div style="background-color: red; color: white; font-weight: bold; padding: 5px 10px; border-radius: 4px; display: inline-block; margin: 10px 0;">${imageText}</div>
+  <div style="position: absolute; top: 10px; left: 10px; background-color: red; color: white; font-weight: bold; padding: 5px 10px; border-radius: 4px;">${imageText}</div>
   <h2>${productName}</h2>
-  <a href="${amazonLink}" target="_blank"><button style="margin-right: 10px; background-color: #007bff; border: none; padding: 8px 12px; border-radius: 4px; color: white; cursor: pointer;">Ver na Amazon</button></a>
-  <a href="${mercadolivreLink}" target="_blank"><button style="background-color: #007bff; border: none; padding: 8px 12px; border-radius: 4px; color: white; cursor: pointer;">Ver no Mercado Livre</button></a>
+  <a href="${amazonLink}" target="_blank"><button style="background-color: #17a2b8; border: none; padding: 8px 12px; border-radius: 4px; color: white; cursor: pointer;">Ver na Amazon</button></a>
+  <a href="${mercado livreLink}" target="_blank"><button style="background-color: #004085; border: none; padding: 8px 12px; border-radius: 4px; color: white; cursor: pointer;">Ver no Mercado Livre</button></a>
 </div>
 `;
 
